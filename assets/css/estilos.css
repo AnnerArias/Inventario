@@ -1,0 +1,258 @@
+body {
+    display: flex; /* Mostrar como flexbox */
+    margin: 0; /* Sin margen */
+    font-family: Arial, sans-serif; /* Fuente Arial */
+    background-color: white; /* Fondo blanco */
+}
+
+.barra-lateral {
+    width: 250px; /* Ancho de 250px */
+    height: 100vh; /* Altura del 100% de la ventana */
+    background-color: #fff; /* Fondo blanco */
+    color: #000; /* Texto negro */
+    position: fixed; /* Posición fija */
+    transition: transform 0.3s ease; /* Transición suave de 0.3s */
+    /* border-left: solid 5px #cf0d0d; */
+    border-right: solid 1px #000000; /* Borde derecho negro */
+    box-shadow: 10px 0 15px -5px rgba(1, 1, 1, 0.5); /* Sombra */
+}
+.espacio {
+    margin-left: 15px; /* Margen izquierdo de 15px */
+    margin-right: 15px; /* Margen derecho de 15px */
+}
+.enlace-menu{
+    text-decoration: none;
+    color: #000;
+}
+
+.barra-lateral.oculta {
+    transform: translateX(-100%); /* Mover fuera de la vista */
+}
+
+.logo {
+    text-align: center; /* Centrar texto */
+    padding: 20px 0; /* Relleno arriba y abajo de 20px */
+    font-size: 24px; /* Tamaño de fuente de 24px */
+    background-color: #ffffff; /* Fondo blanco */
+    color: #000000; /* Texto negro */
+}
+
+.menu {
+    list-style: none; /* Sin estilo de lista */
+    padding: 0; /* Sin relleno */
+}
+
+.menu li {
+    padding: 15px 20px; /* Relleno de 15px arriba y abajo, 20px a los lados */
+    cursor: pointer; /* Cursor de puntero */
+    display: flex; /* Mostrar como flexbox */
+    align-items: center; /* Alinear elementos al centro */
+    position: relative; /* Posición relativa */
+}
+
+.menu li:hover {
+    background-color: red; /* Fondo rojo al pasar el ratón */
+    transition: background-color 0.3s; /* Transición suave de 0.3s */
+}
+
+.menu li i {
+    margin-right: 10px; /* Margen derecho de 10px */
+}
+
+.menu .sub-menu {
+    list-style: none; /* Sin estilo de lista */
+    padding-left: 20px; /* Relleno izquierdo de 20px */
+    display: none; /* No mostrar */
+    position: absolute; /* Posición absoluta */
+    top: 100%; /* Posición en la parte inferior del elemento padre */
+    left: 0; /* Alineado a la izquierda */
+    width: 100%; /* Ancho del 100% */
+    background-color: #555; /* Fondo gris oscuro */
+}
+
+.menu li:hover .sub-menu {
+    display: block; /* Mostrar al pasar el ratón */
+}
+
+.contenido-principal {
+    margin-left: 250px; /* Margen izquierdo de 250px */
+    width: calc(100% - 250px); /* Ancho calculado */
+    transition: margin-left 0.3s ease; /* Transición suave de 0.3s */
+}
+
+.contenido-principal.ancho-completo {
+    margin-left: 0; /* Sin margen izquierdo */
+    width: 100%; /* Ancho del 100% */
+}
+
+.barra-superior {
+    display: flex; /* Mostrar como flexbox */
+    justify-content: space-between; /* Espacio entre elementos */
+    padding: 10px 20px; /* Relleno de 10px arriba y abajo, 20px a los lados */
+    background-color: #f1f1f1; /* Fondo gris claro */
+    align-items: center; /* Alinear elementos al centro */
+    border-bottom: solid 1px #000000; /* Borde inferior negro */
+}
+
+.boton-toggle {
+    background: none; /* Sin fondo */
+    border: none; /* Sin borde */
+    font-size: 24px; /* Tamaño de fuente de 24px */
+    cursor: pointer; /* Cursor de puntero */
+}
+
+.notificaciones, .info-usuario {
+    position: relative; /* Posición relativa */
+}
+
+.notificaciones {
+    margin-left: auto; /* Empuja las notificaciones a la derecha */
+}
+
+.notificaciones i, .info-usuario img {
+    cursor: pointer; /* Cursor de puntero */
+}
+
+.info-usuario img {
+    width: 40px; /* Ancho de 40px */
+    height: 40px; /* Altura de 40px */
+    border-radius: 50%; /* Bordes redondeados */
+    margin-right: 10px; /* Margen derecho de 10px */
+}
+.img-tabla{
+    width: 40px; /* Ancho de 40px */
+    height: 40px; /* Altura de 40px */
+    border-radius: 50%; /* Bordes redondeados */
+    margin-right: 10px; /* Margen derecho de 10px */
+}
+
+.desplegable {
+    display: none; /* No mostrar */
+    position: absolute; /* Posición absoluta */
+    top: 100%; /* Posición en la parte inferior del elemento padre */
+    right: 0; /* Alineado a la derecha */
+    background-color: white; /* Fondo blanco */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 10px; /* Relleno de 10px */
+    z-index: 1000; /* Índice z alto */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    width: auto; /* Ajusta el ancho automáticamente */
+}
+
+.notificaciones:hover .desplegable, .info-usuario:hover .desplegable {
+    display: block; /* Mostrar al pasar el ratón */
+}
+
+.miga-de-pan {
+    padding: 10px 20px; /* Relleno de 10px arriba y abajo, 20px a los lados */
+    background-color: #f9f9f9; /* Fondo gris claro */
+}
+
+.miga-de-pan a {
+    color: black; /* Texto negro */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.miga-de-pan span {
+    color: grey; /* Texto gris */
+}
+
+.contenido {
+    padding: 20px; /* Relleno de 20px */
+}
+
+@media (max-width: 768px) {
+    .barra-lateral {
+        transform: translateX(-100%); /* Mover fuera de la vista */
+    }
+
+    .barra-lateral.oculta {
+        transform: translateX(0); /* Mostrar */
+    }
+
+    .contenido-principal {
+        margin-left: 0; /* Sin margen izquierdo */
+        width: 100%; /* Ancho del 100% */
+    }
+
+    .contenido-principal.ancho-completo {
+        margin-left: 0; /* Sin margen izquierdo */
+        width: 100%; /* Ancho del 100% */
+    }
+
+    .menu li span {
+        display: none; /* No mostrar */
+    }
+
+    .menu li i {
+        margin-right: 0; /* Sin margen derecho */
+    }
+}
+
+.contenedor-3d {
+    width: 90%; /* El ancho del contenedor es el 90% del contenedor padre */
+    margin: 20px auto; /* Margen de 20px arriba y abajo, centrado horizontalmente */
+    padding: 20px; /* Relleno interno de 20px */
+    background-color: #f0f0f0; /* Color de fondo gris claro */
+    border-radius: 15px; /* Bordes redondeados con un radio de 15px */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra alrededor del contenedor */
+    position: relative; /* Posición relativa para posicionar elementos hijos */
+}
+
+.boton-crear {
+    position: absolute; /* Posición absoluta dentro del contenedor padre */
+    top: 10px; /* A 10px del borde superior del contenedor padre */
+    right: 10px; /* A 10px del borde derecho del contenedor padre */
+    width: 40px; /* Ancho de 40px */
+    height: 40px; /* Altura de 40px */
+    background-color: #fd070a; /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Bordes redondeados para hacer un botón circular */
+    display: flex; /* Usar flexbox para alinear contenido */
+    align-items: center; /* Alinear contenido verticalmente al centro */
+    justify-content: center; /* Alinear contenido horizontalmente al centro */
+    cursor: pointer; /* Cambiar el cursor a una mano al pasar sobre el botón */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra alrededor del botón */
+}
+
+.boton-crear i {
+    font-size: 18px; /* Tamaño de fuente de 18px para el icono dentro del botón */
+}
+
+.division {
+    margin-top: 60px; /* Margen superior de 60px */
+    padding-top: 20px; /* Relleno superior de 20px */
+}
+
+/* formulario */
+.form-group {
+    margin-bottom: 15px; /* Margen inferior de 15px entre grupos de formulario */
+}
+
+.form_label {
+    display: block; /* Mostrar como bloque */
+    margin-bottom: 5px; /* Margen inferior de 5px */
+    font-weight: bold; /* Texto en negrita */
+}
+
+.form_input {
+    width: 100%; /* Ancho del 100% del contenedor padre */
+    padding: 10px; /* Relleno interno de 10px */
+    border: 1px solid #ccc; /* Borde de 1px de color gris claro */
+    border-radius: 5px; /* Bordes redondeados con un radio de 5px */
+    box-sizing: border-box; /* Incluir el relleno y el borde en el ancho y alto total del elemento */
+}
+
+.btn-success {
+    background-color: #fd070a; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    padding: 10px 20px; /* Relleno de 10px arriba y abajo, 20px a los lados */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados con un radio de 5px */
+    cursor: pointer; /* Cambiar el cursor a una mano al pasar sobre el botón */
+}
+
+.btn-success:hover {
+    background-color: #fd070a; /* Color de fondo verde oscuro al pasar el cursor sobre el botón */
+}

@@ -1,0 +1,157 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+header, footer {
+    background-color: #232323;
+    color: #f1f1f1;
+    padding: 2px;
+    text-align: left;
+}
+.container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "sidebar main"
+        "sidebar main"
+        "sidebar main";
+    height: calc(100% - 40px); /* Restar el alto del encabezado y el pie de página */
+}
+aside {
+    background-color: #232323;
+    grid-area: sidebar;
+}
+
+.vertical-menu {
+    width: 240px;
+}
+.vertical-menu a {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    background-color: #232323; 
+    color: #f1f1f1; 
+    display: block;
+    padding: 12px; 
+    text-decoration: none;
+}
+.vertical-menu a:hover {
+    background-color: #ff9a76;
+    color: #f1f1f1; 
+}
+
+.main {
+    background-color: #f1f1f1;
+    padding: 10px;
+    grid-area: main;
+}
+
+footer {
+    background-color: #232323;
+    color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+.titulos {
+    font-family: "Arial", sans-serif; 
+    color: rgba(0, 0, 0, 0.7); 
+    text-align: center;  
+  }
+  p {
+    font-family: "Arial", sans-serif; 
+    font-size: 16px; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+  }
+  
+  .link{
+    color: blue;
+    text-decoration: none;
+}
+/* ESTLO FORMULARIOS */
+.formu {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 8px;
+}
+
+.form_label {
+	display: block;
+    font-size: 18px;
+	padding: 6px;
+	cursor: pointer;
+}
+
+.form_input {
+	width: 100%;
+	border: 1px solid #232323;
+	border-radius: 6px;
+    opacity: 0.7;
+	height: 45px;
+	padding: 0 40px 0 10px;
+	transition: .9s ease all;
+    font-size: 16px;
+}
+
+.form_input:focus {
+	border: 2px solid #fe6139;
+	outline: none;
+	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
+}
+
+.enviar {
+    grid-column: span 1;
+	display: flex;
+	flex-direction: column;
+}
+.btnn{
+    height: 45px;
+	line-height: 45px;
+	width: 15%;
+	background: #fff;
+	color: #ff9a76;
+    font-size: 18px;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+.btnn:hover {
+    background-color: #ff9a76;
+    color: #f1f1f1;
+}
+.btn {
+	height: 45px;
+	line-height: 45px;
+	width: 30%;
+	background: #ff9a76;
+	color: #f1f1f1;
+    font-size: 18px;
+	font-weight: bold;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	transition: .1s ease all;
+}
+
+.btn:hover {
+    background-color: #fe6139;
+}
+
+@media screen and (max-width: 800px) {
+	.formu {
+		grid-template-columns: 1fr;
+	}
+	.enviar {
+		grid-column: 1;
+	}
+
+	.btn {
+		width: 100%;
+	}
+}

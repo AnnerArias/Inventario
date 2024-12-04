@@ -1,0 +1,6 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.php/([^/]+)/([^/]+)/([^/]+)$ index.php?c=$1&a=$2&rif=$3 [L]
+
+
+</IfModule>

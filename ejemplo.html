@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control de Inventario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="barra-lateral" id="sidebar">
+        <div class="logo">
+            <img src="assets/img/logo.png" width="70px">
+        </div>
+        <ul class="menu">
+            <li><i class="fas fa-home"></i> <span>Inicio</span></li>
+        </ul>
+    </div>
+    <div class="contenido-principal">
+        <div class="barra-superior">
+            <button class="boton-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+            <div class="notificaciones">
+                <i class="fas fa-bell"></i>
+                <div class="desplegable">
+                    <p>Tienes 1 notificación de Anner Arias.</p>
+                </div>
+            </div>
+            <div class="espacio"> <span>Nombre del Usuario</span></div>
+            <div class="info-usuario">
+                <img src="assets/img/logo.png" alt="Usuario" class="user-img">
+                <div class="desplegable">
+                    <p>Nombre del Usuario</p>
+                    <p>Cambio Clave</p>
+                    <p>Perfil</p>
+                    <p>Salir</p>
+                </div>
+            </div>
+        </div>
+        <div class="miga-de-pan">
+            <a href="#">Inicio</a> / <a href="#">Productos</a> / <span>Lista de Productos</span>
+        </div>
+        <div class="contenido">
+            <h1>Bienvenido al Sistema de Control de Inventario</h1>
+            <p>Este es un texto de prueba para el contenido principal.</p>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
