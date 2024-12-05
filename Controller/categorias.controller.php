@@ -16,11 +16,11 @@ class CategoriasController{
         require_once 'view/footer.php';
     }
 
-    public function Crud(){
+    public function Crud($id){
         $cate = new categorias();
 
-        if(isset($_REQUEST['id'])){
-            $cate = $this->model->Obtener($_REQUEST['id']);
+        if(isset($id)){
+            $cate = $this->model->Obtener($id);
         }
 
         require_once 'view/header.php';
@@ -43,7 +43,7 @@ class CategoriasController{
         $_SESSION['accion']='Categoría creada con éxito';
         $this->model->Registrar($cate);
 
-        header('Location: index.php?c=categorias');
+        header('Location: /Sistemainventario/categorias');
     }
 
     public function Editar(){
@@ -54,12 +54,12 @@ class CategoriasController{
         $_SESSION['accion']='Categoría actualizada con éxito';
         $this->model->Actualizar($cate);
 
-        header('Location: index.php?c=categorias');
+        header('Location: /Sistemainventario/categorias');
     }
 
-    public function Eliminar(){
+    public function Eliminar($id){
         $_SESSION['accion']='Categoría eliminada con éxito';
-        $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=categorias');
+        $this->model->Eliminar($id);
+        header('Location: /Sistemainventario/categorias');
     }
 }

@@ -6,7 +6,7 @@ if (!empty($accion)) {
 $_SESSION['accion'] = '';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <span>Productos en almecen</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <span>Productos en almecen</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -38,7 +38,7 @@ $_SESSION['accion'] = '';
                 <tr>
                     <td><?php echo $count; ?></td>
                     <td><?php echo $codigo_formateado = 'PROD' . sprintf('%05d', $prod->id); ?></td>
-                    <td><img src="assets/img/productos/<?php echo $prod->imagen; ?>" alt="" class="img-tabla"></td>
+                    <td><img src="http://localhost/Sistemainventario/assets/img/productos/<?php echo $prod->imagen; ?>" alt="" class="img-tabla"></td>
                     <td><?php echo $prod->nombre; ?></td>
                     <td><?php echo $r->cantidad; ?></td>
                     <!-- <td>

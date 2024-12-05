@@ -8,7 +8,7 @@ require_once 'model/producto.php';
             var query = $(this).val();
             if (query.length > 0) {
                 $.ajax({
-                    url: "buscador.php",
+                    url: "http://localhost/Sistemainventario/buscador.php",
                     method: "POST",
                     data: {
                         query: query
@@ -28,7 +28,7 @@ require_once 'model/producto.php';
     });
 </script>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=entradas">Entradas</a> / <span>Detalle</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/entradas">Entradas</a> / <span>Detalle</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -36,7 +36,7 @@ require_once 'model/producto.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-compras" action="?c=despachos&a=GuardarDetalles" method="post" enctype="multipart/form-data">
+            <form id="frm-compras" action="despachos/GuardarDetalles" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_compra" value="<?= $_GET['i'] ?>">
                 <input type="hidden" id="id_producto" name="id_producto">
                 <input type="hidden" id="disponible" name="disponible">
@@ -82,7 +82,7 @@ require_once 'model/producto.php';
                     }
                 });
             </script>
-            <a type="submit" href="?c=despachos" class="btn" style="margin-bottom: 30px;">Finalizar</a>
+            <a type="submit" href="despachos" class="btn" style="margin-bottom: 30px;">Finalizar</a>
             <table id="tabla" class="display">
                 <thead>
                     <tr>
@@ -104,7 +104,7 @@ require_once 'model/producto.php';
                             <td><?php echo $pro->nombre; ?></td>
                             <td><?php echo $r->cantidad; ?></td>
                             <td>
-                                <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=despachos&a=EliminarDetalle&id=<?php echo $r->id; ?>&i=<?php echo $_GET['i']; ?>"><i class="fa fa-trash"></i></a>
+                                <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="despachos/EliminarDetalle/<?php echo $r->id; ?>&i=<?php echo $_GET['i']; ?>"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php $count++;

@@ -4,16 +4,16 @@ $categorias = new categorias;
 ?>
 <div class="contenedor"> 
         <ul class="miga-de-pan">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="?c=producto">Productos</a></li>
+            <li><a href="dashboard">Inicio</a></li>
+            <li><a href="producto">Productos</a></li>
             <li>Actualizando - <?php echo $prod->nombre; ?></li> 
         </ul>
-        <form id="frm-producto" action="?c=producto&a=Editar" method="post" enctype="multipart/form-data">
+        <form id="frm-producto" action="Sistemainventario/producto/Editar" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $prod->id; ?>" />
                 <input type="hidden" name="imagen_anterior" value="<?php echo $prod->imagen; ?>" />
 
                 <div class="form-group">
-                    <img src="assets/img/productos/<?php echo $prod->imagen; ?>" alt="" style="width: 50px;">
+                    <img src="http://localhost/Sistemainventario/assets/img/productos/<?php echo $prod->imagen; ?>" alt="" style="width: 50px;">
                     <label class="form_label">Imagen del producto</label>
                     <input type="file" name="imagen" id="" class="form_input"/>
             </div>

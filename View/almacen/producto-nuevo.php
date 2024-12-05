@@ -5,10 +5,10 @@ require_once 'model/categorias.php';
     <div class="contenedor"> 
         <ul class="miga-de-pan">
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="?c=producto">Productos</a></li>
+            <li><a href="producto">Productos</a></li>
             <li>Nuevo producto</li> 
         </ul>
-        <form id="frm-producto" action="?c=producto&a=Guardar" method="post" enctype="multipart/form-data">
+        <form id="frm-producto" action="Sistemainventario/producto/Guardar" method="post" enctype="multipart/form-data">
             <div class="form-group">
                     <label class="form_label">Imagen del producto</label>
                     <input type="file" name="imagen" id="" class="form_input"/>

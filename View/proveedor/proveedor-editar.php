@@ -2,7 +2,7 @@
 require_once 'model/categorias.php';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=proveedor">Proveedores</a> / <span>Editando: <?php echo $pvd->nombre; ?></span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/proveedor">Proveedores</a> / <span>Editando: <?php echo $pvd->nombre; ?></span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -10,12 +10,12 @@ require_once 'model/categorias.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-proveedor" action="?c=proveedor&a=Editar" method="post" enctype="multipart/form-data">
+<form id="frm-proveedor" action="Sistemainventario/proveedor/Editar" method="post" enctype="multipart/form-data">
     <input type="hidden" name="rif_anterior" value="<?php echo $pvd->rif; ?>" />
     <input type="hidden" name="imagen_anterior" value="<?php echo $pvd->logo; ?>" />
 
     <div class="form-group">
-        <img src="assets/img/proveedores/<?php echo $pvd->logo; ?>" alt="" style="width: 50px;">
+        <img src="http://localhost/Sistemainventario/assets/img/proveedores/<?php echo $pvd->logo; ?>" alt="" style="width: 50px;">
         <label class="form_label">Imagen del producto</label>
         <input type="file" name="imagen" class="form_input" />
     </div>

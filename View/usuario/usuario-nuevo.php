@@ -3,7 +3,7 @@ require_once 'model/categorias.php';
 $categorias = new categorias;
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=usuario">Usuarios</a> / <span>Crear nuevo</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/usuario">Usuarios</a> / <span>Crear nuevo</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -11,7 +11,7 @@ $categorias = new categorias;
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-usuario" action="?c=usuario&a=Guardar" method="post" enctype="multipart/form-data" novalidate>
+            <form id="frm-usuario" action="Sistemainventario/usuario/Guardar" method="post" enctype="multipart/form-data" novalidate>
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form_label">Nombres</label>

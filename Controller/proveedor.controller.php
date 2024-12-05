@@ -19,12 +19,12 @@ class ProveedorController{
     }
 
     //Llamado a la vista proveedor-editar
-    public function Crud(){
+    public function Crud($id){
         $pvd = new proveedor();
 
         //Se obtienen los datos del proveedor a editar.
-        if(isset($_REQUEST['rif'])){
-            $pvd = $this->model->Obtener($_REQUEST['rif']);
+        if(isset($id)){
+            $pvd = $this->model->Obtener($id);
         }
 
         //Llamado de las vistas.
@@ -64,7 +64,7 @@ class ProveedorController{
                 $nombre = $_REQUEST['rif'];
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'assets/img/proveedores/' . $imagen_nombre;
+                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/proveedores/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
@@ -83,7 +83,7 @@ class ProveedorController{
         $this->model->Registrar($pvd);
 
         
-        header('Location: ?c=proveedor');
+        header('Location: /Sistemainventario/proveedor');
     }
 
     //Método que modifica el modelo de un proveedor.
@@ -107,7 +107,7 @@ class ProveedorController{
                 $nombre = $_REQUEST['rif'];
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'assets/img/proveedores/' . $imagen_nombre;
+                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/proveedores/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
@@ -124,13 +124,13 @@ class ProveedorController{
         $_SESSION['accion']='Proveedor actualizado con éxito';
         $this->model->Actualizar($pvd);
 
-        header('Location: ?c=proveedor');
+        header('Location: /Sistemainventario/proveedor');
     }
 
     //Método que elimina la tupla proveedor con el rif dado.
-    public function Eliminar(){
+    public function Eliminar($id){
         $_SESSION['accion']='Proveedor eliminado con éxito';
-        $this->model->Eliminar($_REQUEST['rif']);
-        header('Location: ?c=proveedor');
+        $this->model->Eliminar($id);
+        header('Location: /Sistemainventario/proveedor');
     }
 }

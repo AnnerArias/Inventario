@@ -6,13 +6,13 @@ if (!empty($accion)) {
 $_SESSION['accion'] = '';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <span>Lista de Usuarios</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <span>Lista de Usuarios</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
 
     <div class="contenedor-3d">
-        <a type="submit" href="?c=usuario&a=Nuevo" class="btn" style="margin-bottom: 30px;"><button class="boton-crear"><i class="fas fa-plus"></i></button></a>
+        <a type="submit" href="usuario/Nuevo" class="btn" style="margin-bottom: 30px;"><button class="boton-crear"><i class="fas fa-plus"></i></button></a>
         <div class="division">
             <!-- contenido -->
         <table id="tabla" class="display">
@@ -35,9 +35,9 @@ $_SESSION['accion'] = '';
                         <td><?php echo $r->rol; ?></td>
                         <td><?php echo $r->estado; ?></td>
                         <td>
-                            <a style="color: grey; margin-left:10px;" href="?c=usuario&a=Crud&id=<?php echo $r->id; ?>"><i class="fa fa-edit"></i></a>
+                            <a style="color: grey; margin-left:10px;" href="usuario/Crud/<?php echo $r->id; ?>"><i class="fa fa-edit"></i></a>
                         
-                            <a style="<?php if($r->estado == 'Activo'){ echo 'color: red;';}else{ echo 'color: green;';} ?> margin-left:10px;" onclick="javascript:return confirm('¿Cambiar es estado del usuario?');" href="?c=usuario&a=Eliminar&id=<?php echo $r->id; ?>"><i class="fa fa-toggle-on"></i></a>
+                            <a style="<?php if($r->estado == 'Activo'){ echo 'color: red;';}else{ echo 'color: green;';} ?> margin-left:10px;" onclick="javascript:return confirm('¿Cambiar es estado del usuario?');" href="usuario/Eliminar/<?php echo $r->id; ?>"><i class="fa fa-toggle-on"></i></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

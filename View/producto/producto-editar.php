@@ -3,7 +3,7 @@ require_once 'model/categorias.php';
 $categorias = new categorias;
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=producto">Productos</a> / <span>Editando: <?php echo $prod->nombre; ?> </span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/producto">Productos</a> / <span>Editando: <?php echo $prod->nombre; ?> </span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -12,12 +12,12 @@ $categorias = new categorias;
         <div class="division">
             <!-- contenido -->
 
-            <form id="frm-producto" action="?c=producto&a=Editar" method="post" enctype="multipart/form-data">
+            <form id="frm-producto" action="producto/Editar" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $prod->id; ?>" />
                 <input type="hidden" name="imagen_anterior" value="<?php echo $prod->imagen; ?>" />
 
                 <div class="form-group">
-                    <img src="assets/img/productos/<?php echo $prod->imagen; ?>" alt="" style="width: 50px;">
+                    <img src="http://localhost/Sistemainventario/assets/img/productos/<?php echo $prod->imagen; ?>" alt="" style="width: 50px;">
                     <label class="form_label">Imagen del producto</label>
                     <input type="file" name="imagen" id="" class="form_input" />
                 </div>

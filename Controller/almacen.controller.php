@@ -16,11 +16,11 @@ class AlmacenController{
         require_once 'view/footer.php';
     }
 
-    public function Crud(){
+    public function Crud($id){
         $prod = new almacen();
 
-        if(isset($_REQUEST['id'])){
-            $prod = $this->model->Obtener($_REQUEST['id']);
+        if(isset($id)){
+            $prod = $this->model->Obtener($id);
         }
 
         require_once 'view/header.php';
@@ -57,7 +57,7 @@ class AlmacenController{
                 $nombre = substr($_REQUEST['nombre'], 0, 4);
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'assets/img/almacens/' . $imagen_nombre;
+                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/almacens/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
@@ -74,7 +74,7 @@ class AlmacenController{
         $this->model->Registrar($prod);
 
 
-        header('Location: index.php?c=almacen');
+        header('Location: /Sistemainventario/almacen');
     }
 
     public function Editar(){
@@ -99,7 +99,7 @@ class AlmacenController{
                 $nombre = substr($_REQUEST['nombre'], 0, 4);
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'assets/img/almacens/' . $imagen_nombre;
+                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/almacens/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
@@ -116,11 +116,11 @@ class AlmacenController{
 
         $this->model->Actualizar($prod);
 
-        header('Location: index.php?c=almacen');
+        header('Location: /Sistemainventario/almacen');
     }
 
-    public function Eliminar(){
-        $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=almacen');
+    public function Eliminar($id){
+        $this->model->Eliminar($id);
+        header('Location: /Sistemainventario/almacen');
     }
 }

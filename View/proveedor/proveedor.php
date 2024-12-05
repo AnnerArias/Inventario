@@ -6,13 +6,13 @@ if (!empty($accion)) {
 $_SESSION['accion']='';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <span>Lista de Proveedores</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <span>Lista de Proveedores</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
 
     <div class="contenedor-3d">
-        <a type="submit" href="?c=proveedor&a=Nuevo" class="btn" style="margin-bottom: 30px;"><button class="boton-crear"><i class="fas fa-plus"></i></button></a>
+        <a type="submit" href="proveedor/Nuevo" class="btn" style="margin-bottom: 30px;"><button class="boton-crear"><i class="fas fa-plus"></i></button></a>
         <div class="division">
             <!-- contenido -->
 
@@ -34,14 +34,14 @@ $_SESSION['accion']='';
                 <tr>
                     <td><?php echo $contador; ?></td>
                     <td><?php echo $r->rif; ?></td>
-                    <td><img src="assets/img/proveedores/<?=$r->logo?>" alt="" class="img-tabla"></td>
+                    <td><img src="http://localhost/Sistemainventario/assets/img/proveedores/<?=$r->logo?>" alt="" class="img-tabla"></td>
                     <td><?php echo $r->nombre; ?></td>
                     <td><?php echo $r->direccion; ?></td>
                     <td><?php echo $r->telefono; ?></td>
                     <td>
-                        <a style="color: grey; margin-left:10px;" href="?c=proveedor&a=Crud&rif=<?php echo $r->rif; ?>"><i class="fa fa-edit"></i></a>
+                        <a style="color: grey; margin-left:10px;" href="proveedor/Crud/<?php echo $r->rif; ?>"><i class="fa fa-edit"></i></a>
                 
-                        <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=proveedor&a=Eliminar&rif=<?php echo $r->rif; ?>"><i class="fa fa-trash"></i></a>
+                        <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="proveedor/Eliminar/<?php echo $r->rif; ?>"><i class="fa fa-trash"></i></a>
                     </td>
                 </tr>
             <?php $contador++; 

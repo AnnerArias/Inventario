@@ -3,7 +3,7 @@ require_once 'model/categorias.php';
 $categorias = new categorias;
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=categorias">Categorias</a> / <span>Crear nuevo</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/categorias">Categorias</a> / <span>Crear nuevo</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -11,7 +11,7 @@ $categorias = new categorias;
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-        <form id="frm-categorias" action="?c=categorias&a=Guardar" method="POST" enctype="multipart/form-data">
+        <form id="frm-categorias" action="categorias/Guardar" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="form_label">Nombre</label>
                 <input type="text" autofocus autocomplete="off" name="nombre" class="form_input" placeholder="Nombre completo" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese nombre de la categoria." />

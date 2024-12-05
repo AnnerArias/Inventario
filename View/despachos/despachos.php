@@ -6,13 +6,13 @@ if (!empty($accion)) {
 $_SESSION['accion'] = '';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <span>Lista de Salidas</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <span>Lista de Salidas</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
 
     <div class="contenedor-3d">
-        <a type="submit" href="?c=salidas&a=Nuevo" class="btn" style="margin-bottom: 30px;"><button class="boton-crear"><i class="fas fa-plus"></i></button></a>
+        <a type="submit" href="salidas/Nuevo" class="btn" style="margin-bottom: 30px;"><button class="boton-crear"><i class="fas fa-plus"></i></button></a>
         <div class="division">
             <!-- contenido -->
         <table id="tabla" class="display">
@@ -40,9 +40,9 @@ $_SESSION['accion'] = '';
                     <td><?php echo $r->factura; ?></td>
                     <td><?php echo $r->fecha; ?></td>
                     <td>
-                        <a style="color: grey; margin-left:10px;" href="?c=despachos&a=Detalles&i=<?php echo $r->id; ?>"><i class="fa fa-edit"></i></a>
+                        <a style="color: grey; margin-left:10px;" href="despachos/Detalles/<?php echo $r->id; ?>"><i class="fa fa-edit"></i></a>
                     
-                        <!-- <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=despachos&a=Eliminar&id=<?php echo $r->id; ?>"><i class="fa fa-trash"></i></a> -->
+                        <!-- <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="despachos/Eliminar&id=<?php echo $r->id; ?>"><i class="fa fa-trash"></i></a> -->
                     </td>
                 </tr>
             <?php $count++; endforeach; ?>

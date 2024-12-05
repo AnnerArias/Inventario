@@ -15,11 +15,11 @@ class ComprasController{
         require_once 'view/footer.php';
     }
 
-    public function Crud(){
+    public function Crud($id){
         $comp = new compras();
 
-        if(isset($_REQUEST['id'])){
-            $comp = $this->model->Obtener($_REQUEST['id']);
+        if(isset($id)){
+            $comp = $this->model->Obtener($id);
         }
 
         require_once 'view/header.php';
@@ -34,9 +34,9 @@ class ComprasController{
         require_once 'view/compras/compras-nuevo.php';
         require_once 'view/footer.php';
     }
-    public function Detalles(){
+    public function Detalles($id){
         $comp = new compras();
-
+        $id_comp = $id;
         require_once 'view/header.php';
         require_once 'view/compras/compras-detalles.php';
         require_once 'view/footer.php';
@@ -52,7 +52,7 @@ class ComprasController{
         $this->model->Registrar($comp);
 // dirigir al formulario de agregar detalles
         $i = $this->model->Ultima();
-        header('Location: index.php?c=compras&a=Detalles&i='.$i.'');
+        header('Location: /Sistemainventario/compras/Detalles/'.$i.'');
     }
     // guardar detalles
     public function GuardarDetalles(){
@@ -72,7 +72,7 @@ class ComprasController{
 
 // dirigir al formulario de agregar detalles
         $i = $_REQUEST['id_compra'];
-        header('Location: index.php?c=compras&a=Detalles&i='.$i.'');
+        header('Location: /Sistemainventario/compras/Detalles/'.$i.'');
     }
 
     public function Editar(){
@@ -85,18 +85,18 @@ class ComprasController{
 
         $this->model->Actualizar($comp);
 
-        header('Location: index.php?c=compras');
+        header('Location: /Sistemainventario/compras');
     }
 
-    public function Eliminar(){
-        $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=compras');
+    public function Eliminar($id){
+        $this->model->Eliminar($id);
+        header('Location: /Sistemainventario/compras');
     }
-    public function EliminarDetalle(){
+    public function EliminarDetalle($id){
 
-        $this->model->EliminarDetalle($_REQUEST['id']);
+        $this->model->EliminarDetalle($id);
         
          $i = $_REQUEST['i'];
-        header('Location: index.php?c=compras&a=Detalles&i='.$i.'');
+        header('Location: /Sistemainventario/compras/Detalles/'.$i.'');
     }
 }

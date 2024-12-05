@@ -16,11 +16,11 @@ class UsuarioController{
         require_once 'view/footer.php';
     }
 
-    public function Crud(){
+    public function Crud($id){
         $prod = new usuario();
 
-        if(isset($_REQUEST['id'])){
-            $prod = $this->model->Obtener($_REQUEST['id']);
+        if(isset($id)){
+            $prod = $this->model->Obtener($id);
         }
 
         require_once 'view/header.php';
@@ -50,7 +50,7 @@ class UsuarioController{
         $_SESSION['accion']='Usuario creado con éxito';
         $this->model->Registrar($prod);
 
-        header('Location: index.php?c=usuario');
+        header('Location: /Sistemainventario/usuario');
     }
 
     public function Editar(){
@@ -65,12 +65,12 @@ class UsuarioController{
         $_SESSION['accion']='Usuario actualizado con éxito';
         $this->model->Actualizar($prod);
 
-        header('Location: index.php?c=usuario');
+        header('Location: /Sistemainventario/usuario');
     }
 
-    public function Eliminar(){
+    public function Eliminar($id){
         $_SESSION['accion']='Estado Cambiado';
-        $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=usuario');
+        $this->model->Eliminar($id);
+        header('Location: /Sistemainventario/usuario');
     }
 }

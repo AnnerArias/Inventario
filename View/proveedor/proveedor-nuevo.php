@@ -2,7 +2,7 @@
 require_once 'model/categorias.php';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=proveedor">Proveedores</a> / <span>Crear nuevo</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/proveedor">Proveedores</a> / <span>Crear nuevo</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -11,7 +11,7 @@ require_once 'model/categorias.php';
         <div class="division">
             <!-- contenido -->
 
-            <form id="frm-proveedor" action="?c=proveedor&a=Guardar" method="post" enctype="multipart/form-data">
+            <form id="frm-proveedor" action="http://localhost/Sistemainventario/proveedor/Guardar" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="form_label">RIF</label>
                     <input type="text" name="rif" autofocus class="form_input" placeholder="Ingrese RIF Proveedor" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese el RIF del proveedor." />

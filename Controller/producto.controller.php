@@ -16,11 +16,11 @@ class ProductoController{
         require_once 'view/footer.php';
     }
 
-    public function Crud(){
+    public function Crud($id){
         $prod = new producto();
 
-        if(isset($_REQUEST['id'])){
-            $prod = $this->model->Obtener($_REQUEST['id']);
+        if(isset($id)){
+            $prod = $this->model->Obtener($id);
         }
 
         require_once 'view/header.php';
@@ -56,7 +56,7 @@ class ProductoController{
                 $nombre = substr($_REQUEST['nombre'], 0, 4);
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'assets/img/productos/' . $imagen_nombre;
+               $ruta_destino = 'http://localhost/Sistemainventario/assets/img/productos/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
@@ -73,7 +73,7 @@ class ProductoController{
         $this->model->Registrar($prod);
         
         $_SESSION['accion']='Producto creado con éxito';
-        header('Location: index.php?c=producto');
+        header('Location: /Sistemainventario/producto');
     }
 
     public function Editar(){
@@ -98,8 +98,7 @@ class ProductoController{
                 $nombre = substr($_REQUEST['nombre'], 0, 4);
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'assets/img/productos/' . $imagen_nombre;
-
+                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/productos/' . $imagen_nombre;
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
                 $prod->imagen = $imagen_nombre;
@@ -115,12 +114,12 @@ class ProductoController{
         $_SESSION['accion']='Producto actualizado con éxito';
         $this->model->Actualizar($prod);
 
-        header('Location: index.php?c=producto');
+        header('Location: /Sistemainventario/producto');
     }
 
-    public function Eliminar(){
+    public function Eliminar($id){
         $_SESSION['accion']='Producto eliminado con éxito';
-        $this->model->Eliminar($_REQUEST['id']);
-        header('Location: index.php?c=producto');
+        $this->model->Eliminar($id);
+        header('Location: /Sistemainventario/producto');
     }
 }

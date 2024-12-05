@@ -8,7 +8,7 @@ require_once 'model/producto.php';
             var query = $(this).val();
             if (query.length > 0) {
                 $.ajax({
-                    url: "buscador.php",
+                    url: "http://localhost/Sistemainventario/buscador.php",
                     method: "POST",
                     data: {
                         query: query
@@ -27,7 +27,7 @@ require_once 'model/producto.php';
     });
 </script>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=entradas">Entradas</a> / <span>Detalle</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/entradas">Entradas</a> / <span>Detalle</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -35,10 +35,10 @@ require_once 'model/producto.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-compras" action="?c=compras&a=GuardarDetalles" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id_compra" value="<?= $_GET['i'] ?>">
+            <form id="frm-compras" action="compras/GuardarDetalles" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_compra" value="<?= $id_comp ?>">
                 <input type="hidden" id="id_producto" name="id_producto">
-                <input type="hidden" id="disponible" name="disponible">
+                <input type="hidden" id="disponible" name="disponible"> 
                 <div class="form-group">
                     <label class="form_label" for="buscador">Buscador:</label>
                     <input type="text" id="buscador" name="buscador" class="form_input" placeholder="Buscar producto" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese el nombre del producto."><br><br>
@@ -81,7 +81,7 @@ require_once 'model/producto.php';
                 });
             </script>
 
-            <a type="submit" href="?c=compras" class="btn" style="margin-bottom: 30px;">Finalizar</a>
+            <a type="submit" href="compras" class="btn" style="margin-bottom: 30px;">Finalizar</a>
             <table id="tabla" class="display">
                 <thead>
                     <tr>
@@ -95,7 +95,7 @@ require_once 'model/producto.php';
                     <?php
                     $count = 1;
                     $productos = new producto();
-                    foreach ($this->model->ListarDestalles($_GET['i']) as $r):
+                    foreach ($this->model->ListarDestalles($id_comp) as $r):
                         $pro = $productos->Obtener($r->producto_id);
                     ?>
                         <tr>
@@ -103,7 +103,7 @@ require_once 'model/producto.php';
                             <td><?php echo $pro->nombre; ?></td>
                             <td><?php echo $r->cantidad; ?></td>
                             <td>
-                                <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="?c=compras&a=EliminarDetalle&id=<?php echo $r->id; ?>&i=<?php echo $_GET['i']; ?>"><i class="fa fa-trash"></i></a>
+                                <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="http://localhost/Sistemainventario/compras/EliminarDetalle/<?php echo $r->id; ?>/<?php echo $id_comp; ?>"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php $count++;

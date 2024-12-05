@@ -2,7 +2,7 @@
 require_once 'model/usuario.php';
 ?>
 <div class="miga-de-pan">
-    <a href="?c=dashboard">Inicio</a> / <a href="?c=entradas">Entradas</a> / <span>Crear nueva</span>
+    <a href="http://localhost/Sistemainventario/dashboard">Inicio</a> / <a href="http://localhost/Sistemainventario/entradas">Entradas</a> / <span>Crear nueva</span>
 </div>
 <div class="contenido">
     <!-- contenido desde aqui -->
@@ -10,7 +10,7 @@ require_once 'model/usuario.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-        <form id="frm-producto" action="?c=despachos&a=Guardar" method="post" enctype="multipart/form-data">
+        <form id="frm-producto" action="despachos/Guardar" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group">
                     <label class="form_label">Autorizado</label>
