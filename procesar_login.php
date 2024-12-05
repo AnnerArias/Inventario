@@ -32,17 +32,17 @@ class AuthController {
                 $_SESSION['user_avatar'] = $usuario['avatar'];
 
                 // Redirige al área privada o a la página principal
-                header('Location: index.php'); // Cambia la ruta según tu estructura
+                header('Location: http://localhost/Sistemainventario/'); // Cambia la ruta según tu estructura
                 exit;
             } else {
                 // Credenciales inválidas: muestra un mensaje de error
                 $_SESSION['login_error'] = 'Credenciales incorrectas. Inténtalo nuevamente.';
-                header('Location: login.php'); // Redirige al formulario de inicio de sesión
+                header('Location: http://localhost/Sistemainventario/login.php'); // Redirige al formulario de inicio de sesión
                 exit;
             }
         } else {
             // Si se accede directamente a este archivo, redirige al formulario de inicio de sesión
-            header('Location: login.php');
+            header('Location: http://localhost/Sistemainventario/login.php');
             exit;
         }
     }

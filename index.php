@@ -5,7 +5,7 @@ require_once 'model/database.php';
 $controladorPorDefecto = 'dashboard';
 
 if (!isset($_SESSION['user_nombre'])) {
-    header('Location: login.php');
+    header('Location: http://localhost/Sistemainventario/login.php');
     exit;
 }
 

@@ -15,7 +15,7 @@
                         Iniciar Sesión
                     </div>
                     <div class="card-body">
-                        <form action="procesar_login.php" method="POST">
+                        <form action="http://localhost/Sistemainventario/procesar_login.php" method="POST">
                             <div class="form-group">
                                 <label for="correo">Correo Electrónico:</label>
                                 <input type="email" class="form_input" id="correo" name="email" placeholder="Ingrese el correo" required>
