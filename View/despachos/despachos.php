@@ -40,7 +40,7 @@ $_SESSION['accion'] = '';
                     <td><?php echo $r->factura; ?></td>
                     <td><?php echo $r->fecha; ?></td>
                     <td>
-                        <a style="color: grey; margin-left:10px;" href="despachos/Detalles/<?php echo $r->id; ?>"><i class="fa fa-edit"></i></a>
+                        <a style="color: grey; margin-left:10px;" href="salidas/Detalles/<?php echo $r->id; ?>"><i class="fa fa-edit"></i></a>
                     
                         <!-- <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="despachos/Eliminar&id=<?php echo $r->id; ?>"><i class="fa fa-trash"></i></a> -->
                     </td>

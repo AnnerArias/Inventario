@@ -11,7 +11,7 @@ require_once 'model/categorias.php';
         <div class="division">
             <!-- contenido -->
 
-            <form id="frm-producto" action="producto/Guardar" method="post" enctype="multipart/form-data">
+            <form id="frm-producto" action="http://localhost/Sistemainventario/producto/Guardar" method="post" enctype="multipart/form-data">
                 <div class="form-group"> <label class="form_label">Imagen del producto</label> <input type="file" name="imagen" id="" class="form_input" /> </div>
                 <div class="form-group"> <label class="form_label">Nombre del producto</label> <input type="text" name="nombre" class="form_input" placeholder="Ingrese nombre producto" autofocus data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese el nombre del producto." /> </div>
                 <div class="form-group"> <label class="form_label">Presentacion</label> <input type="text" name="presentacion" class="form_input" placeholder="Ingrese presentación" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese la presentacion o como viene el producto." /> </div>

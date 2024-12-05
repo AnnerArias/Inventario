@@ -103,21 +103,45 @@ class despachos
 			die($e->getMessage());
 		}
 	}
-
 	public function EliminarDetalle($id)
 	{
 		try
 		{
-			// antes de eliminar sumar productos a stock
-			$stm = $this->pdo
-			            ->prepare("DELETE FROM detalles_despachos WHERE id = ?");
-
-			$stm->execute(array($id));
+			// Obtener la cantidad y el producto_id del detalle a eliminar
+			$sql = "SELECT cantidad, producto_id FROM detalles_despachos WHERE id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute(array($id));
+			$detalle = $stmt->fetch(PDO::FETCH_ASSOC);
+	
+			if ($detalle) {
+				// Restar la cantidad del producto al stock
+				$sql = "UPDATE stock SET cantidad = cantidad - ? WHERE id_producto = ?";
+				$this->pdo->prepare($sql)->execute(array($detalle['cantidad'], $detalle['producto_id']));
+	
+				// Eliminar el detalle de la compra
+				$stm = $this->pdo->prepare("DELETE FROM detalles_despachos WHERE id = ?");
+				$stm->execute(array($id));
+			}
 		} catch (Exception $e)
 		{
 			die($e->getMessage());
 		}
 	}
+	
+	// public function EliminarDetalle($id)
+	// {
+	// 	try
+	// 	{
+	// 		// antes de eliminar sumar productos a stock
+	// 		$stm = $this->pdo
+	// 		            ->prepare("DELETE FROM detalles_despachos WHERE id = ?");
+
+	// 		$stm->execute(array($id));
+	// 	} catch (Exception $e)
+	// 	{
+	// 		die($e->getMessage());
+	// 	}
+	// }
 
 	public function Actualizar($data)
 	{

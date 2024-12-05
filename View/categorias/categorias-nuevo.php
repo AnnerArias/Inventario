@@ -11,7 +11,7 @@ $categorias = new categorias;
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-        <form id="frm-categorias" action="categorias/Guardar" method="POST" enctype="multipart/form-data">
+        <form id="frm-categorias" action="http://localhost/Sistemainventario/categorias/Guardar" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="form_label">Nombre</label>
                 <input type="text" autofocus autocomplete="off" name="nombre" class="form_input" placeholder="Nombre completo" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese nombre de la categoria." />

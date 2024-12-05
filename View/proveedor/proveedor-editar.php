@@ -10,7 +10,7 @@ require_once 'model/categorias.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-<form id="frm-proveedor" action="Sistemainventario/proveedor/Editar" method="post" enctype="multipart/form-data">
+<form id="frm-proveedor" action="http://localhost/Sistemainventario/proveedor/Editar" method="post" enctype="multipart/form-data">
     <input type="hidden" name="rif_anterior" value="<?php echo $pvd->rif; ?>" />
     <input type="hidden" name="imagen_anterior" value="<?php echo $pvd->logo; ?>" />
 

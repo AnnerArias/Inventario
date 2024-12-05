@@ -92,11 +92,10 @@ class ComprasController{
         $this->model->Eliminar($id);
         header('Location: /Sistemainventario/compras');
     }
-    public function EliminarDetalle($id){
+    public function EliminarDetalle($id, $i){
 
         $this->model->EliminarDetalle($id);
         
-         $i = $_REQUEST['i'];
         header('Location: /Sistemainventario/compras/Detalles/'.$i.'');
     }
 }

@@ -104,19 +104,30 @@ class compras
 	}
 
 	public function EliminarDetalle($id)
-	{
-		// antes de eliminar restar los productos a stock
-		try
-		{
-			$stm = $this->pdo
-			            ->prepare("DELETE FROM detalles_compras WHERE id = ?");
+{
+    try
+    {
+        // Obtener la cantidad y el producto_id del detalle a eliminar
+        $sql = "SELECT cantidad, producto_id FROM detalles_compras WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(array($id));
+        $detalle = $stmt->fetch(PDO::FETCH_ASSOC);
 
-			$stm->execute(array($id));
-		} catch (Exception $e)
-		{
-			die($e->getMessage());
-		}
-	}
+        if ($detalle) {
+            // Restar la cantidad del producto al stock
+            $sql = "UPDATE stock SET cantidad = cantidad - ? WHERE id_producto = ?";
+            $this->pdo->prepare($sql)->execute(array($detalle['cantidad'], $detalle['producto_id']));
+
+            // Eliminar el detalle de la compra
+            $stm = $this->pdo->prepare("DELETE FROM detalles_compras WHERE id = ?");
+            $stm->execute(array($id));
+        }
+    } catch (Exception $e)
+    {
+        die($e->getMessage());
+    }
+}
+
 
 	public function Actualizar($data)
 	{

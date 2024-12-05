@@ -12,7 +12,7 @@ $categorias = new categorias;
         <div class="division">
             <!-- contenido -->
 
-            <form id="frm-producto" action="producto/Editar" method="post" enctype="multipart/form-data">
+            <form id="frm-producto" action="http://localhost/Sistemainventario/producto/Editar" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $prod->id; ?>" />
                 <input type="hidden" name="imagen_anterior" value="<?php echo $prod->imagen; ?>" />
 
@@ -32,7 +32,7 @@ $categorias = new categorias;
                     </div>
                     <div class="form-group">
                         <label class="form_label">Cantidad por empaque</label>
-                        <input type="text" name="cant_empaque" class="form_input" value="<?php echo $prod->cant_empaque; ?>" placeholder="Ingrese cantidad por empaque" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese la cantidad por empaque." />
+                        <input type="number" name="cant_empaque" class="form_input" value="<?php echo $prod->cant_empaque; ?>" placeholder="Ingrese cantidad por empaque" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese la cantidad por empaque." />
                     </div>
                 </div>
                 <div class="form-row">
@@ -64,7 +64,7 @@ $categorias = new categorias;
                     </div>
                     <div class="form-group">
                         <label class="form_label">Cantidad mínima en stock</label>
-                        <input type="text" name="min_stock" class="form_input" value="<?php echo $prod->min_stock; ?>" placeholder="Ingrese cantidad mínima en stock" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese la cantidad mínima en stock." />
+                        <input type="number" name="min_stock" class="form_input" value="<?php echo $prod->min_stock; ?>" placeholder="Ingrese cantidad mínima en stock" data-validacion-tipo="requerido" data-tooltip="Por favor, ingrese la cantidad mínima en stock." />
                     </div>
                 </div>
 

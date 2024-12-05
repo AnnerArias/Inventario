@@ -29,7 +29,9 @@ class EntradasController{
 
     public function Nuevo(){
         $comp = new compras();
-
+        if(isset($id)){
+            $comp = $this->model->Obtener($id);
+        }
         require_once 'view/header.php';
         require_once 'view/compras/compras-nuevo.php';
         require_once 'view/footer.php';
@@ -92,11 +94,11 @@ class EntradasController{
         $this->model->Eliminar($id);
         header('Location: /Sistemainventario/entradas');
     }
-    public function EliminarDetalle($id){
+    public function EliminarDetalle($id, $i){
 
         $this->model->EliminarDetalle($id);
         
-         $i = $_REQUEST['i'];
-        header('Location: /Sistemainventario/entradas/Detalles/'.$i.'');
+       echo  $id .', '. $i; die;
+        // header('Location: /Sistemainventario/entradas/Detalles/'.$i.'');
     }
 }

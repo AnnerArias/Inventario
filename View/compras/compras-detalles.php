@@ -35,7 +35,7 @@ require_once 'model/producto.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-compras" action="compras/GuardarDetalles" method="post" enctype="multipart/form-data">
+            <form id="frm-compras" action="http://localhost/Sistemainventario/compras/GuardarDetalles" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="id_compra" value="<?= $id_comp ?>">
                 <input type="hidden" id="id_producto" name="id_producto">
                 <input type="hidden" id="disponible" name="disponible"> 
@@ -81,7 +81,7 @@ require_once 'model/producto.php';
                 });
             </script>
 
-            <a type="submit" href="compras" class="btn" style="margin-bottom: 30px;">Finalizar</a>
+            <a type="submit" href="http://localhost/Sistemainventario/compras" class="btn" style="margin-bottom: 30px;">Finalizar</a>
             <table id="tabla" class="display">
                 <thead>
                     <tr>

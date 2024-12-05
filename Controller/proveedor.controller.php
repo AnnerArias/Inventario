@@ -64,7 +64,7 @@ class ProveedorController{
                 $nombre = $_REQUEST['rif'];
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/proveedores/' . $imagen_nombre;
+                $ruta_destino = 'assets/img/proveedores/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
@@ -107,7 +107,7 @@ class ProveedorController{
                 $nombre = $_REQUEST['rif'];
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/proveedores/' . $imagen_nombre;
+                $ruta_destino = 'assets/img/proveedores/' . $imagen_nombre;
 
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);

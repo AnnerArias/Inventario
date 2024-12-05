@@ -29,7 +29,7 @@ $_SESSION['accion'] = '';
                     $count = 1; 
                     require_once 'model/producto.php';
                     foreach($this->model->Listar() as $r): 
-                       
+                       if($r->cantidad > 0){
                         $producto = new producto;
                         $prod = $producto->Obtener($r->id);
                      if (isset($prod->id)) {
@@ -48,6 +48,7 @@ $_SESSION['accion'] = '';
                     </td> -->
                 </tr>
             <?php $count++; 
+                     }
                         }
         endforeach; ?>
             </tbody>

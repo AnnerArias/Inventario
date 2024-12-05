@@ -38,29 +38,34 @@ class ProductoController{
 
     public function Guardar(){
         $prod = new producto();
-
+    
         $prod->nombre = $_REQUEST['nombre'];
         $prod->presentacion = $_REQUEST['presentacion'];
         $prod->cant_empaque = $_REQUEST['cant_empaque'];
         $prod->estado = $_REQUEST['estado'];
         $prod->categoria_id = $_REQUEST['categoria_id'];
         $prod->min_stock = $_REQUEST['min_stock'];
-
+    
         // Validar si la imagen fue cargada
         if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] == 0) {
             $allowed_formats = ['image/png', 'image/jpeg', 'image/gif'];
             $file_type = $_FILES['imagen']['type'];
-
+    
             // Validar el formato de la imagen
             if (in_array($file_type, $allowed_formats)) {
                 $nombre = substr($_REQUEST['nombre'], 0, 4);
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-               $ruta_destino = 'http://localhost/Sistemainventario/assets/img/productos/' . $imagen_nombre;
-
+                $ruta_destino = 'assets/img/productos/' . $imagen_nombre;
+    
                 // Mover la imagen a la carpeta de destino
-                move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
-                $prod->imagen = $imagen_nombre;
+                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino)) {
+                    $prod->imagen = $imagen_nombre;
+                } else {
+                    // Error al mover la imagen
+                    echo "Error al mover la imagen a la carpeta de destino.";
+                    $prod->imagen = 'no-imagen.png';
+                }
             } else {
                 // Formato de imagen no permitido
                 $prod->imagen = 'no-imagen.png';
@@ -69,12 +74,13 @@ class ProductoController{
             // No se cargó ninguna imagen
             $prod->imagen = 'no-imagen.png';
         }
-
+    
         $this->model->Registrar($prod);
         
         $_SESSION['accion']='Producto creado con éxito';
         header('Location: /Sistemainventario/producto');
     }
+    
 
     public function Editar(){
         $prod = new producto();
@@ -98,7 +104,7 @@ class ProductoController{
                 $nombre = substr($_REQUEST['nombre'], 0, 4);
                 $extension = pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION);
                 $imagen_nombre = $nombre . '.' . $extension;
-                $ruta_destino = 'http://localhost/Sistemainventario/assets/img/productos/' . $imagen_nombre;
+                $ruta_destino = 'assets/img/productos/' . $imagen_nombre;
                 // Mover la imagen a la carpeta de destino
                 move_uploaded_file($_FILES['imagen']['tmp_name'], $ruta_destino);
                 $prod->imagen = $imagen_nombre;

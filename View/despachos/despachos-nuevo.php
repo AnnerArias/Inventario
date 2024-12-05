@@ -10,7 +10,7 @@ require_once 'model/usuario.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-        <form id="frm-producto" action="despachos/Guardar" method="post" enctype="multipart/form-data">
+        <form id="frm-producto" action="http://localhost/Sistemainventario/salidas/Guardar" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group">
                     <label class="form_label">Autorizado</label>

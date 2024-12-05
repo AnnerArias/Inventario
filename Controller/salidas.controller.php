@@ -34,9 +34,9 @@ class SalidasController{
         require_once 'view/despachos/despachos-nuevo.php';
         require_once 'view/footer.php';
     }
-    public function Detalles(){
+    public function Detalles($id){
         $desp = new despachos();
-
+        $id_comp = $id;
         require_once 'view/header.php';
         require_once 'view/despachos/despachos-detalles.php';
         require_once 'view/footer.php';

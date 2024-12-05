@@ -36,8 +36,8 @@ require_once 'model/producto.php';
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-compras" action="despachos/GuardarDetalles" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="id_compra" value="<?= $_GET['i'] ?>">
+            <form id="frm-compras" action="http://localhost/Sistemainventario/salidas/GuardarDetalles" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id_despacho" value="<?= $id_comp ?>">
                 <input type="hidden" id="id_producto" name="id_producto">
                 <input type="hidden" id="disponible" name="disponible">
                 <div class="form-group">
@@ -82,7 +82,7 @@ require_once 'model/producto.php';
                     }
                 });
             </script>
-            <a type="submit" href="despachos" class="btn" style="margin-bottom: 30px;">Finalizar</a>
+            <a type="submit" href="http://localhost/Sistemainventario/salidas" class="btn" style="margin-bottom: 30px;">Finalizar</a>
             <table id="tabla" class="display">
                 <thead>
                     <tr>
@@ -96,7 +96,7 @@ require_once 'model/producto.php';
                     <?php
                     $count = 1;
                     $productos = new producto();
-                    foreach ($this->model->ListarDestalles($_GET['i']) as $r):
+                    foreach ($this->model->ListarDestalles($id_comp) as $r):
                         $pro = $productos->Obtener($r->producto_id);
                     ?>
                         <tr>
@@ -104,7 +104,7 @@ require_once 'model/producto.php';
                             <td><?php echo $pro->nombre; ?></td>
                             <td><?php echo $r->cantidad; ?></td>
                             <td>
-                                <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="despachos/EliminarDetalle/<?php echo $r->id; ?>&i=<?php echo $_GET['i']; ?>"><i class="fa fa-trash"></i></a>
+                                <a style="color: red; margin-left:10px;" onclick="javascript:return confirm('¿Seguro de eliminar este registro?');" href="http://localhost/Sistemainventario/salidas/EliminarDetalle/<?php echo $r->id; ?>/<?php echo $id_comp; ?>"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     <?php $count++;
