@@ -11,7 +11,7 @@ $categorias = new categorias;
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-            <form id="frm-usuario" action="Sistemainventario/usuario/Guardar" method="post" enctype="multipart/form-data" novalidate>
+            <form id="frm-usuario" action="http://localhost/Sistemainventario/usuario/Guardar" method="post" enctype="multipart/form-data" novalidate>
                 <div class="form-row">
                     <div class="form-group">
                         <label class="form_label">Nombres</label>

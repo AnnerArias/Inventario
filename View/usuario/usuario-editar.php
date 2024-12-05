@@ -11,7 +11,7 @@ $categorias = new categorias;
     <div class="contenedor-3d">
         <div class="division">
             <!-- contenido -->
-        <form id="frm-usuario" action="Sistemainventario/usuario/Editar" method="post" enctype="multipart/form-data">
+        <form id="frm-usuario" action="http://localhost/Sistemainventario/usuario/Editar" method="post" enctype="multipart/form-data">
             <input type="hidden" name="id" value="<?php echo $prod->id; ?>" />
 
             <div class="form-row">

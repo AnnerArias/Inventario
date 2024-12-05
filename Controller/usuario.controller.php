@@ -15,6 +15,11 @@ class UsuarioController{
         require_once 'view/usuario/usuario.php';
         require_once 'view/footer.php';
     }
+    public function CambioClave(){
+        require_once 'view/header.php';
+        require_once 'view/usuario/pass.php';
+        require_once 'view/footer.php';
+    }
 
     public function Crud($id){
         $prod = new usuario();
@@ -73,4 +78,40 @@ class UsuarioController{
         $this->model->Eliminar($id);
         header('Location: /Sistemainventario/usuario');
     }
+    public function ActualizarContraseña(){
+        $id_usuario = $_REQUEST['id_usuario'];
+        $actual = $_REQUEST['actual'];
+        $nueva = $_REQUEST['nueva'];
+        $confirmar = $_REQUEST['confirmar'];
+    
+        // Verificar que las nuevas contraseñas coincidan
+        if ($nueva !== $confirmar) {
+            $_SESSION['accion'] = 'Las nuevas contraseñas no coinciden.';
+            header('Location: /Sistemainventario/usuario');
+            return;
+        }
+    
+        // Verificar que la nueva contraseña cumpla con los requisitos
+        $regex = '/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
+        if (!preg_match($regex, $nueva)) {
+            $_SESSION['accion'] = 'La nueva contraseña debe tener al menos 8 caracteres, incluir al menos 1 letra mayúscula, 1 número y 1 símbolo.';
+            header('Location: /Sistemainventario/usuario');
+            return;
+        }
+    
+        // Verificar la contraseña actual usando el método comprobarClave
+        if ($this->model->comprobarClave($id_usuario, $actual)) {
+            // Actualizar la contraseña usando el método updateClave
+            $this->model->updateClave($id_usuario, md5($nueva));
+    
+            $_SESSION['accion'] = 'Contraseña actualizada con éxito';
+        } else {
+            $_SESSION['accion'] = 'La contraseña actual es incorrecta.';
+        }
+    
+        header('Location: /Sistemainventario/usuario');
+    }
+    
+    
+    
 }

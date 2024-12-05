@@ -53,6 +53,26 @@ class usuario
 			die($e->getMessage());
 		}
 	}
+	public function comprobarClave($id, $clave)
+	{
+		try
+		{
+			$stm = $this->pdo->prepare("SELECT clave FROM usuarios WHERE id = ?");
+			$stm->execute(array($id));
+			$usuario = $stm->fetch(PDO::FETCH_OBJ);
+
+			// Verificar si la clave proporcionada coincide con la clave almacenada
+			if ($usuario && md5($clave) === $usuario->clave) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception $e)
+		{
+			die($e->getMessage());
+		}
+	}
+
 
 	public function Eliminar($id)
 	{
@@ -93,25 +113,19 @@ class usuario
 	}
 
 	// cambiar clave
-	public function CambiarClave($data)
-	{
-		try
+	public function updateClave($id, $nuevaClave)
 		{
-			$sql = "UPDATE usuarios SET
-						clave    = ?
-				    WHERE id = ?";
-
-			$this->pdo->prepare($sql)
-			     ->execute(
-				    array(
-                        md5($data->clave),
-					)
-				);
-		} catch (Exception $e)
-		{
-			die($e->getMessage());
+			try
+			{
+				$sql = "UPDATE usuarios SET clave = ? WHERE id = ?";
+				$stm = $this->pdo->prepare($sql);
+				$stm->execute(array($nuevaClave, $id));
+			} catch (Exception $e)
+			{
+				die($e->getMessage());
+			}
 		}
-	}
+
 
 	public function Registrar(usuario $data)
 	{

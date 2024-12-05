@@ -89,7 +89,7 @@
             <div class="info-usuario">
                 <img src="http://localhost/Sistemainventario/assets/img/logo.png" alt="Usuario" class="user-img">
                 <div class="desplegable">
-                    <p><a href="cambieClave.php" style="text-decoration: none;">Cambio Clave</a></p>
+                    <p><a href="http://localhost/Sistemainventario/usuario/CambioClave" style="text-decoration: none;">Cambio Clave</a></p>
                     <p><a href="salir.php" style="text-decoration: none;">Salir</a></p>
                 </div>
             </div>
