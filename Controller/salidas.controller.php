@@ -92,11 +92,10 @@ class SalidasController{
         $this->model->Eliminar($id);
         header('Location: /Sistemainventario/salidas');
     }
-    public function EliminarDetalle($id){
+    public function EliminarDetalle($id, $i){
 
         $this->model->EliminarDetalle($id);
         
-         $i = $_REQUEST['i'];
         header('Location: /Sistemainventario/salidas/Detalles/'.$i.'');
     }
 }
